@@ -1,12 +1,24 @@
 package com.github.cauafernandess.study_apir.service;
 
-import java.util.List;
 import com.github.cauafernandess.study_apir.model.Product;
+import org.springframework.stereotype.Service;
 
-
+import java.util.List;
+@Service
 public class ProductService {
+    private List<Product> products;
 
-private List<Product> products;
+    public Product createProduct(Product product){
+        return null;
+    }
+    public void updateProduct(Long id, Product product){
 
+    }
+    public void getProductId(Long id){
+
+    }
+    public void deleteProduct(Long id){
+
+    }
 
 }
