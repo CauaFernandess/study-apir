@@ -15,16 +15,16 @@ public class ControllerProduct {
     private ProductService service;
    
     @PostMapping
-    public ResponseEntity<String> create(Product product){
-        System.out.println(product.getNome());
-        service.createProduct(null);
-        return ResponseEntity.status(201).body("Produto cadastrado");
+    public ResponseEntity<Product> create(@RequestBody Product product){
+      
+       Product productCreated  = service.createProduct(product);
+        return ResponseEntity.status(201).body(product);
     }
 
-    @PutMapping
-    public ResponseEntity<String> update(){
-        service.updateProduct(null, null);
-        return ResponseEntity.status(200).body("produto atualizado");
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> update( @PathVariable  Long id, @RequestBody Product product){
+       Product productUpdated = service.updateProduct(id, product);
+        return ResponseEntity.status(200).body(productUpdated);
     }
 
     @GetMapping
