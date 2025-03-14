@@ -3,6 +3,9 @@ package com.github.cauafernandess.study_apir.controller;
 
 import com.github.cauafernandess.study_apir.model.Product;
 import com.github.cauafernandess.study_apir.service.ProductService;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +25,8 @@ public class ControllerProduct {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> update( @PathVariable  Long id, @RequestBody Product product){
-       Product productUpdated = service.updateProduct(id, product);
+    public ResponseEntity<Optional<Product>> update( @PathVariable  Long id, @RequestBody Product product){
+       Optional<Product> productUpdated = service.updateProduct(id, product);
         return ResponseEntity.status(200).body(productUpdated);
     }
 
